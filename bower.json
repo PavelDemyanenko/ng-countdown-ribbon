@@ -1,0 +1,22 @@
+{
+  "name": "ng-countdown-ribbon",
+  "version": "0.0.1-alfa",
+  "authors": [
+    "xeLL <conscious.suddens@gmail.com>"
+  ],
+  "description": "A simple module to display the remaining days before the event at ribbon.",
+  "main": "\"./src/scripts/ng-countdown-ribbon.js\", \"./src/styles/ng-countdown-ribbon.css\"",
+  "keywords": [
+    "AngularJS"
+  ],
+  "license": "MIT",
+  "homepage": "ng-countdown-ribbon.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
