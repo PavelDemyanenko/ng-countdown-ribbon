@@ -1,0 +1,30 @@
+{
+  "name": "ng-countdown-ribbon",
+  "version": "0.1.0",
+  "description": "A simple module to display the remaining days before the event at ribbon.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavelDemyanenko/ng-countdown-ribbon.git"
+  },
+  "author": "xeLL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PavelDemyanenko/ng-countdown-ribbon/issues"
+  },
+  "homepage": "https://github.com/PavelDemyanenko/ng-countdown-ribbon",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-processhtml": "^0.3.3",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.6.0"
+  }
+}

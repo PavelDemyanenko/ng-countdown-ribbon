@@ -1,0 +1,9 @@
+.idea
+vendor
+node_modules
+bower_components
+dist
+.temp
+logs
+.sass-cache
+github-page
