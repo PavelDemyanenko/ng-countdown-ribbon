@@ -16,7 +16,7 @@
 
     module.provider('ngCountdownRibbon', function() {
 
-        this.$get = ['$document', '$compile', '$rootScope', '$timeout', '$interval',
+        this.$get = ['$document', '$compile', '$rootScope',
 
             function($document, $compile, $rootScope) {
 

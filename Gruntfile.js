@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         sass: {
             build: {
                 files: {
-                    'src/styles/ng-countdown-ribbon.css': 'src/styles/ng-countdown-ribbon.sass'
+                    'src/styles/ng-countdown-ribbon.css': 'src/styles/ng-countdown-ribbon.scss'
                 }
             }
         },
