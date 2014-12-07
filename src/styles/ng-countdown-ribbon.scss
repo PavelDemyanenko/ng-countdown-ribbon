@@ -1,22 +1,17 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+$c-color: black;
 
-.ribbon {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+.countdown-ribbon {
     font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     position: absolute;
     left: -20px;
     top: 42px;
-    border-top: 2px solid #000;
+    border-top: 2px solid $c-color;
     border-bottom: 2px solid #000;
     padding: 10px 5px;
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    z-index: 3;
     &::before {
         content: "";
         top: -2px;
@@ -47,4 +42,7 @@
         -webkit-transform: skewX(-45deg);
         transform: skewX(-45deg);
     }
+    &.red { $c-color: red; }
+    &.blue { $c-color: blue; }
+    &.green { $c-color: green; }
 }

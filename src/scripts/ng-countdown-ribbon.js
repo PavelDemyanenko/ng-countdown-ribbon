@@ -27,7 +27,7 @@
                 };
 
                 var ribbonScope = $rootScope.$new();
-                var tpl = $compile('<span class="ng-countdown-ribbon" ng-class="ngCountdownRibbon.ribbonClass">{{ ngCountdownRibbon.ribbonMessage }}</span>')(ribbonScope);
+                var tpl = $compile('<span class="countdown-ribbon" ng-class="ngCountdownRibbon.ribbonClass">{{ ngCountdownRibbon.ribbonMessage }}</span>')(ribbonScope);
 
                 $document.find('body').append(tpl);
 
@@ -59,8 +59,8 @@
                 var setClass = function(defaultType, providedType) {
 
                     var classes = {
-                        defaultClass: 'ng-countdown-ribbon-default',
-                        todayClass: 'ng-countdown-ribbon-today'
+                        defaultClass: 'default',
+                        todayClass: 'today'
                     };
 
                     var type = (providedType || defaultType) + 'Class';
@@ -71,7 +71,10 @@
                 var setTheme = function(theme) {
 
                     var themes = {
-                        default: ''
+                        default: 'black',
+                        red: 'red',
+                        blue: 'blue',
+                        green: 'green'
                     };
 
                     return themes[theme] || '';
@@ -80,8 +83,8 @@
                 var setPosition = function(position) {
 
                     var positions = {
-                        left: 'ng-countdown-ribbon-left',
-                        right: 'ng-countdown-ribbon-right'
+                        left: 'left',
+                        right: 'right'
                     };
 
                     return positions[position] || positions.left;
@@ -92,3 +95,4 @@
         ];
     });
 })();
+
