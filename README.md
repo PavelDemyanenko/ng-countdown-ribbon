@@ -18,7 +18,7 @@ Now you can trigger countdown ribbon from anywhere in your app.  To display a ri
 First parameter is the end date and second is for the event link. Use date format in ISO 8601 (https://xkcd.com/1179/).
 
 ```javascript
-ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP'');
+ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
 ```
 ## License
 
