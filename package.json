@@ -1,7 +1,7 @@
 {
   "name": "ng-countdown-ribbon",
   "version": "0.1.0",
-  "description": "A simple module for displaying time remaining before the scheduled event on a ribbon.",
+  "description": "A simple module for displaying days remaining before the scheduled event on a ribbon.",
   "main": "./src/scripts/ng-countdown-ribbon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

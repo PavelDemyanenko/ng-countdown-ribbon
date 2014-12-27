@@ -4,7 +4,7 @@
   "authors": [
     "Pavel Demyanenko <mail@paveldemyanenko.com>"
   ],
-  "description": "A simple module for displaying time remaining before the scheduled event on a ribbon.",
+  "description": "A simple module for displaying days remaining before the scheduled event on a ribbon.",
   "main": [
     "./src/scripts/ng-countdown-ribbon.js",
     "./src/styles/ng-countdown-ribbon.css"

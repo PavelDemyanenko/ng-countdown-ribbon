@@ -1,6 +1,6 @@
 [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url]
 
-A simple module for displaying time remaining before the scheduled event on a ribbon.
+A simple module for displaying days remaining before the scheduled event on a ribbon.
 
 ## [Demo](http://paveldemyanenko.github.io/ng-countdown-ribbon/index.html)
 
