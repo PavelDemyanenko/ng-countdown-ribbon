@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 
             demo: {
                 files: {
-                    'dist/demo/demo.min.css': [
+                    '_gh-pages/demo.min.css': [
                         'src/styles/ng-countdown-ribbon.css',
                         'demo/demo.css'
                     ]
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         processhtml: {
             build: {
                 files: {
-                    'dist/demo/index.html': 'demo/index.html'
+                    '_gh-pages/index.html': 'demo/index.html'
                 }
             }
         },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             },
             index: {
                 files: {
-                    'dist/demo/index.html': 'dist/demo/index.html'
+                    '_gh-pages/index.html': '_gh-pages/index.html'
                 }
             }
         },
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
             },
             demo: {
                 files: {
-                    'dist/demo/demo.min.js': [
+                    '_gh-pages/demo.min.js': [
                         'bower_components/angular/angular.js',
                         'src/scripts/ng-countdown-ribbon.js',
                         'demo/demo.js'
@@ -114,8 +114,6 @@ module.exports = function(grunt) {
         'uglify:demo'
     ]);
 
-
     grunt.registerTask('default', ['build']);
     grunt.registerTask('dev', ['build', 'watch']);
-
 };

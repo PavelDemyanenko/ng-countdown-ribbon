@@ -5,9 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>ng-countdown-ribbon by xeLL</title>
+    <title>ng-countdown-ribbon by Pavel Demyanenko</title>
 
-    <link href="images/favicon.ico" rel="shortcut icon">
     <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro|Open+Sans' rel='stylesheet' type='text/css'>
 
     <!-- build:css demo.min.css -->
@@ -18,26 +17,37 @@
 </head>
 
 <body ng-controller="MainCtrl">
-<span class="ribbon"></span>
-<div class="header">
-    <h1>ng-countdown-ribbon</h1>
-    <h2>A simple module to display the remaining days before the event at ribbon.</h2>
-</div>
+    <header>
+        <h1>ng-countdown-ribbon</h1>
+        <h2>This module provides AngularJS application with a system for displaying time remaining before the scheduled event on a ribbon.</h2>
+    </header>
 
-<div class="main">
-    <h3>demo</h3>
+    <div class="main">
+        <ul>
+            <li>
+                <label for="theme">theme:</label>
+                <select ng-model="theme" id="theme" ng-options="value for value in themeOptions" ng-change="setDefaultTheme()"></select>
+            </li>
+            <li>
+                <label for="position">position:</label>
+                <select ng-model="position" id="position" ng-options="value for value in positionOptions" ng-change="setDefaultPosition()"></select>
+            </li>
+        </ul>
+        <br>
+        <ul>
+            <li class="git-share"><a href="https://github.com/PavelDemyanenko/ng-countdown-ribbon" class="github-button" data-icon="octicon-star" data-count-href="/PavelDemyanenko/ng-countdown-ribbon/stargazers" data-count-api="/repos/PavelDemyanenko/ng-countdown-ribbon#stargazers_count">Star</a><script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script></li>
+            <li class="twit-share"><a href="https://twitter.com/share" class="twitter-share-button" data-text="ng-countdown-ribbon: A simple module for displaying time remaining before the scheduled event on a ribbon in your AngularJS app." data-via="paveldemyanenko" data-hashtags="angularjs">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+        </ul>
+        <br>
+        <p>Found a bug? <a href="https://github.com/PavelDemyanenko/ng-countdown-ribbon/issues">Create an Issue on Github</a>.</p>
+        <br>
+    </div>
 
-    <h3>options</h3>
-
-    <div class="foot"></div>
-
-</div>
-
-<!-- build:js demo.min.js -->
-<script src="../app/bower_components/angular/angular.js"></script>
-<script src="../src/scripts/ng-countdown-ribbon.js"></script>
-<script src="demo.js"></script>
-<!-- /build -->
+    <!-- build:js demo.min.js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../src/scripts/ng-countdown-ribbon.js"></script>
+    <script src="demo.js"></script>
+    <!-- /build -->
 
 </body>
 </html>

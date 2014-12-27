@@ -2,8 +2,8 @@
 vendor
 node_modules
 bower_components
-dist
+dist/demo
 .temp
 logs
 .sass-cache
-github-page
+_gh-pages

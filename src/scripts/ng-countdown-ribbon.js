@@ -1,7 +1,7 @@
 /**
  * @license ng-countdown-ribbon v0.1.0
  * http://paveldemyanenko.github.io/ng-countdown-ribbon
- * (c) 2014 MIT License, http://development.demyanenko.divshot.io
+ * (c) 2015 MIT License, paveldemyanenko.com
  */
 (function() {
     'use strict';
@@ -9,9 +9,10 @@
     /**
      * @description
      *
-     * This module provides any AngularJS application with a simple countdown robbin.
-     *
+     * This module provides AngularJS application with a system for displaying
+     * time remaining before the scheduled event on a ribbon.
      */
+
     var module = angular.module('ngCountdownRibbon', []);
 
     module.provider('ngCountdownRibbon', function() {
@@ -21,15 +22,41 @@
             function($document, $compile, $rootScope) {
 
                 var options = {
-                    theme: 'default',
-                    position: 'left',
-                    defaultType: ''
+                    theme: 'black',
+                    position: 'left'
+                };
+
+                var themes = {
+                    black: 'ribbon_black',
+                    blue: 'ribbon_blue'
+                };
+
+                var positions = {
+                    left: 'ribbon_left',
+                    right: 'ribbon_right'
                 };
 
                 var ribbonScope = $rootScope.$new();
-                var tpl = $compile('<span class="countdown-ribbon" ng-class="ngCountdownRibbon.ribbonClass">{{ ngCountdownRibbon.ribbonMessage }}</span>')(ribbonScope);
+
+                var tpl = $compile(
+                  '<a ng-href="{{ngCountdownRibbon.ribbonLink}}" class="ribbon-container" target="_blank">' +
+                  '<span class="ribbon" ng-class="ngCountdownRibbon.ribbonClass">' +
+                  '<span><ng-pluralize count="ngCountdownRibbon.ribbonDays" ' +
+                  'when="{\'0\': \'Event has come\', \'one\': \'1 day left\', \'other\': \'{} days left\'}"' +
+                  '</ng-pluralize></span></span></a>'
+                )(ribbonScope);
 
                 $document.find('body').append(tpl);
+
+                var setTheme = function(providedTheme) {
+                    var theme = providedTheme || options.theme;
+                    return themes[theme] || themes.black;
+                };
+
+                var setPosition = function(providedPosition) {
+                    var position = providedPosition || options.position;
+                    return positions[position] || positions.left;
+                };
 
                 var ribbonObject = {
 
@@ -38,61 +65,51 @@
                         angular.extend(options, params);
                     },
 
-                    set: function(message, type) {
+                    set: function(date, link, userOpt) {
 
-                        if (!message) {
+                        if (!date) {
                             return;
                         }
 
-                        var ribbonClass = setClass(options.defaultType, type) + ' ' +
-                            setTheme(options.theme) + ' ' +
-                            setPosition(options.position);
+                        var endDate = new Date(date.split('-').join('/'));
 
-                        ribbonScope.ngCountdownRibbon = {
-                            ribbonClass: ribbonClass,
-                            ribbonMessage: message
+                        var asUTC = function(date) {
+                            var result = new Date(date);
+                            result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+                            return result;
                         };
 
+                        var daysBetween = function(startDate, endDate) {
+                            var millisecondsPerDay = 24 * 60 * 60 * 1000;
+                            return (asUTC(endDate) - asUTC(startDate)) / millisecondsPerDay;
+                        };
+
+                        var currentDate = new Date().getTime();
+
+                        var days = Math.round(daysBetween(currentDate, endDate));
+
+                        var userOpts = {};
+
+                        if (typeof userOpt === 'object') {
+                            userOpts = {
+                                theme: userOpt.theme || undefined,
+                                position: userOpt.position || undefined
+                            };
+                        } else {
+                            userOpts.type = userOpt;
+                        }
+
+                        var ribbonClass = setTheme(userOpts.theme) + ' ' + setPosition(userOpts.position);
+
+                        ribbonScope.ngCountdownRibbon = {
+                            ribbonLink: link,
+                            ribbonClass: ribbonClass,
+                            ribbonDays: days
+                        };
                     }
                 };
-
-                var setClass = function(defaultType, providedType) {
-
-                    var classes = {
-                        defaultClass: 'default',
-                        todayClass: 'today'
-                    };
-
-                    var type = (providedType || defaultType) + 'Class';
-
-                    return classes[type] || classes.defaultClass;
-                };
-
-                var setTheme = function(theme) {
-
-                    var themes = {
-                        default: 'black',
-                        red: 'red',
-                        blue: 'blue',
-                        green: 'green'
-                    };
-
-                    return themes[theme] || '';
-                };
-
-                var setPosition = function(position) {
-
-                    var positions = {
-                        left: 'left',
-                        right: 'right'
-                    };
-
-                    return positions[position] || positions.left;
-                };
-
                 return ribbonObject;
             }
         ];
     });
 })();
-

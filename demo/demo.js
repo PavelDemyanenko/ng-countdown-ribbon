@@ -4,33 +4,28 @@ app.controller('MainCtrl', ['$scope', 'ngCountdownRibbon',
     function($scope, ngCountdownRibbon) {
         'use strict';
 
-        // Configuration options...
+        ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
 
-        $scope.theme = 'default';
+        $scope.theme = 'black';
+        $scope.themeOptions = ['black', 'blue'];
 
         $scope.position = 'left';
+        $scope.positionOptions = ['left', 'right'];
 
-        $scope.defaultType = 'default';
-
-        // Configuration actions...
-
-        $scope.setDefaultType = function() {
-            ngCountdownRibbon.config({
-                defaultType: $scope.defaultType
-            });
-        };
 
         $scope.setDefaultPosition = function() {
             ngCountdownRibbon.config({
                 position: $scope.position
             });
+            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
 
         $scope.setDefaultTheme = function() {
             ngCountdownRibbon.config({
                 theme: $scope.theme
             });
+            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
+
     }
 ]);
-

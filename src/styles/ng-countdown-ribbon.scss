@@ -1,48 +1,97 @@
-$c-color: black;
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
 
-.countdown-ribbon {
-    font-size: 12px;
-    position: absolute;
-    left: -20px;
-    top: 42px;
-    border-top: 2px solid $c-color;
-    border-bottom: 2px solid #000;
-    padding: 10px 5px;
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    &::before {
-        content: "";
-        top: -2px;
-        left: -18px;
-        width: 35px;
-        height: 100%;
-        position: absolute;
-        border-color: #000;
-        border-style: solid;
-        border-width: 2px 0px 2px 2px;
-        -moz-transform: skewX(-45deg);
-        -ms-transform: skewX(-45deg);
-        -webkit-transform: skewX(-45deg);
-        transform: skewX(-45deg);
-    }
+@mixin ribbon-color($color){
+    border-top: 2px solid $color;
+    border-bottom: 2px solid $color;
+    color: $color;
     &::after {
-        content: "";
-        top: -2px;
-        right: -18px;
-        width: 35px;
-        height: 100%;
-        position: absolute;
-        border-color: #000;
-        border-style: solid;
-        border-width: 2px 2px 2px 0px;
-        -moz-transform: skewX(-45deg);
-        -ms-transform: skewX(-45deg);
-        -webkit-transform: skewX(-45deg);
-        transform: skewX(-45deg);
+        border-color: $color;
     }
-    &.red { $c-color: red; }
-    &.blue { $c-color: blue; }
-    &.green { $c-color: green; }
+    &::before {
+        border-color: $color;
+    }
+    > a {
+        color: $color;
+    }
+}
+
+@mixin ribbon-position($position){
+    @if $position == left {
+        left: -13px;
+        right: auto;
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+
+    } @else if $position == right {
+        right: -13px;
+        left: auto;
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.ribbon-container {
+    overflow: hidden;
+    text-decoration: none;
+    > .ribbon {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        color: black;
+        width: 150px;
+        line-height: 18px;
+        position: absolute;
+        height: 15px;
+        top: 48px;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        padding: 10px 5px;
+        white-space: nowrap;
+        text-align: center;
+        &::before {
+            content: "";
+            top: -2px;
+            left: -18px;
+            width: 35px;
+            height: 100%;
+            position: absolute;
+            border-color: black;
+            border-style: solid;
+            border-width: 2px 0 2px 2px;
+            -moz-transform: skewX(-45deg);
+            -ms-transform: skewX(-45deg);
+            -webkit-transform: skewX(-45deg);
+            transform: skewX(-45deg);
+        }
+        &::after {
+            content: "";
+            top: -2px;
+            right: -18px;
+            width: 35px;
+            height: 100%;
+            position: absolute;
+            border-color: black;
+            border-style: solid;
+            border-width: 2px 2px 2px 0;
+            -moz-transform: skewX(45deg);
+            -ms-transform: skewX(45deg);
+            -webkit-transform: skewX(45deg);
+            transform: skewX(45deg);
+        }
+        &.ribbon_blue {
+            @include ribbon-color(blue);
+        }
+        &.ribbon_black {
+            @include ribbon-color(black);
+        }
+        &.ribbon_left {
+            @include ribbon-position(left);
+        }
+        &.ribbon_right {
+            @include ribbon-position(right);
+        }
+    }
 }
