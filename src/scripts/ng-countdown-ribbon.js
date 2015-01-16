@@ -106,7 +106,15 @@
                             ribbonClass: ribbonClass,
                             ribbonDays: days
                         };
+                    },
+
+                    addTheme: function(themeName, themeClass) {
+                        if (!themeName || !themeClass) {
+                            return;
+                        }
+                        themes[themeName] = themeClass;
                     }
+
                 };
                 return ribbonObject;
             }

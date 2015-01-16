@@ -4,14 +4,19 @@ app.controller('MainCtrl', ['$scope', 'ngCountdownRibbon',
     function($scope, ngCountdownRibbon) {
         'use strict';
 
-        ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
-
         $scope.theme = 'black';
         $scope.themeOptions = ['black', 'blue'];
 
         $scope.position = 'left';
         $scope.positionOptions = ['left', 'right'];
 
+        ngCountdownRibbon.addTheme('greenTheme', 'green');
+
+        ngCountdownRibbon.config({
+            theme: 'greenTheme'
+        });
+
+        ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
 
         $scope.setDefaultPosition = function() {
             ngCountdownRibbon.config({
