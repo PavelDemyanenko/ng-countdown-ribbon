@@ -36,6 +36,11 @@
                     right: 'ribbon_right'
                 };
 
+                var types = {
+                    birthday: 'birthday',
+                    event: 'special-event'
+                };
+
                 var ribbonScope = $rootScope.$new();
 
                 var tpl = $compile(
@@ -57,6 +62,12 @@
                     var position = providedPosition || options.position;
                     return positions[position] || positions.left;
                 };
+
+                var setType = function(providedType) {
+                    var type = (providedType || options.type);
+                    return types[type] || types.birthday;
+                };
+
 
                 var ribbonObject = {
 
@@ -93,13 +104,14 @@
                         if (typeof userOpt === 'object') {
                             userOpts = {
                                 theme: userOpt.theme || undefined,
-                                position: userOpt.position || undefined
+                                position: userOpt.position || undefined,
+                                type: userOpt.type || undefined
                             };
                         } else {
                             userOpts.type = userOpt;
                         }
 
-                        var ribbonClass = setTheme(userOpts.theme) + ' ' + setPosition(userOpts.position);
+                        var ribbonClass = setTheme(userOpts.theme) + ' ' + setPosition(userOpts.position) + ' ' + setType(userOpts.type);
 
                         ribbonScope.ngCountdownRibbon = {
                             ribbonLink: link,
@@ -113,8 +125,14 @@
                             return;
                         }
                         themes[themeName] = themeClass;
-                    }
+                    },
 
+                    addType: function(typeName, typeClass) {
+                        if (!typeName || !typeClass) {
+                            return;
+                        }
+                        types[typeName] = typeClass;
+                    }
                 };
                 return ribbonObject;
             }
