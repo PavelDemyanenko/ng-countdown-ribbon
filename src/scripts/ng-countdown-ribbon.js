@@ -84,15 +84,15 @@
 
                         var endDate = new Date(date.split('-').join('/'));
 
-                        var asUTC = function(date) {
+                        var asMidnight = function(date) {
                             var result = new Date(date);
-                            result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+                            result.setHours(0,0,0,0);
                             return result;
                         };
 
                         var daysBetween = function(startDate, endDate) {
                             var millisecondsPerDay = 24 * 60 * 60 * 1000;
-                            return (asUTC(endDate) - asUTC(startDate)) / millisecondsPerDay;
+                            return (asMidnight(endDate) - asMidnight(startDate)) / millisecondsPerDay;
                         };
 
                         var currentDate = new Date().getTime();
