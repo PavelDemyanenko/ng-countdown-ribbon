@@ -16,20 +16,20 @@ app.controller('MainCtrl', ['$scope', 'ngCountdownRibbon',
             theme: 'greenTheme'
         });
 
-        ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+        ngCountdownRibbon.set('2018-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
 
         $scope.setDefaultPosition = function() {
             ngCountdownRibbon.config({
                 position: $scope.position
             });
-            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+            ngCountdownRibbon.set('2018-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
 
         $scope.setDefaultTheme = function() {
             ngCountdownRibbon.config({
                 theme: $scope.theme
             });
-            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+            ngCountdownRibbon.set('2018-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
 
     }
