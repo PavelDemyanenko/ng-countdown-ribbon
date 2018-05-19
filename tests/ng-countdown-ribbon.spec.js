@@ -28,19 +28,18 @@ describe('MainCtrl', function(){
 
     var $controller, $rootScope;
 
-
     beforeEach(inject(function(_$controller_, _$rootScope_){
         $controller = _$controller_;
         $rootScope = _$rootScope_;
-      }));
+    }));
 
   	describe('getRibbonDate()', function(){
-  		  it('should handle date correctly', inject(function($controller){
+        it('should handle date correctly', inject(function($controller){
             var $scope = $rootScope.$new();
 
-  			    var mainCtrl = $controller('MainCtrl', {$scope: $scope});
+            var mainCtrl = $controller('MainCtrl', {$scope: $scope});
 
             $scope.getRibbonDate().should.equal('1 day left');
-  		  }));
+        }));
   	});
 });
