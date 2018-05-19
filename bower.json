@@ -32,5 +32,8 @@
   "dependencies": {
     "angular": "1.6.x",
     "angular-mocks": "^1.6.10"
+  },
+  "resolutions": {
+    "angular": "1.6.x"
   }
 }
