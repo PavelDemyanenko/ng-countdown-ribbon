@@ -1,7 +1,7 @@
 /**
- * @license ng-countdown-ribbon v0.1.0
+ * @license ng-countdown-ribbon v0.3.1
  * http://paveldemyanenko.github.io/ng-countdown-ribbon
- * (c) 2015 MIT License, paveldemyanenko.com
+ * (c) 2018 MIT License, paveldemyanenko.com
  */
 (function() {
     'use strict';

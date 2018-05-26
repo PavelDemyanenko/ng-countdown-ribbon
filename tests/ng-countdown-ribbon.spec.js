@@ -17,6 +17,7 @@ angular.module('app', ['ngCountdownRibbon'])
             ngCountdownRibbon.set(formatDate(tomorrow), 'http://amzn.com/w/ZWFNUL8AGNLP');
 
             $scope.getRibbonDate = function() {
+                // TODO: https://stackoverflow.com/questions/50428936/why-template-is-not-compiling-in-tests
                 return '1 day left';
             }
         }
