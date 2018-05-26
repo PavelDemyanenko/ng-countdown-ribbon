@@ -16,20 +16,33 @@ app.controller('MainCtrl', ['$scope', 'ngCountdownRibbon',
             theme: 'greenTheme'
         });
 
-        ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+        var today = new Date();
+        var tomorrow = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+            return [year, month, day].join('-');
+        }
+
+        ngCountdownRibbon.set(formatDate(tomorrow), 'http://amzn.com/w/ZWFNUL8AGNLP');
 
         $scope.setDefaultPosition = function() {
             ngCountdownRibbon.config({
                 position: $scope.position
             });
-            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+            ngCountdownRibbon.set(formatDate(tomorrow), 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
 
         $scope.setDefaultTheme = function() {
             ngCountdownRibbon.config({
                 theme: $scope.theme
             });
-            ngCountdownRibbon.set('2015-03-26', 'http://amzn.com/w/ZWFNUL8AGNLP');
+            ngCountdownRibbon.set(formatDate(tomorrow), 'http://amzn.com/w/ZWFNUL8AGNLP');
         };
 
     }
