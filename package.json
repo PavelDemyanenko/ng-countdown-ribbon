@@ -32,7 +32,7 @@
     "grunt-contrib-sass": "1.0.0",
     "grunt-contrib-uglify": "3.3.0",
     "grunt-contrib-watch": "1.1.0",
-    "grunt-processhtml": "0.4.1",
+    "grunt-processhtml": "0.4.2",
     "karma": "^2.0.2",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
